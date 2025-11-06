@@ -2,6 +2,7 @@ import express from "express";
 import { z } from "zod";
 import { prismaClient } from "./db";
 import "dotenv/config";
+import { id } from "zod/locales";
 
 export const app = express();
 app.use(express.json());
@@ -28,7 +29,7 @@ app.post("/sum", async (req, res) => {
   const result = a + b;
 
   // Adding Database: we have to mock out this request creation during unit testing
-  await prismaClient.request.create({
+  const request = await prismaClient.request.create({
     data: {
       a,
       b,
@@ -37,5 +38,5 @@ app.post("/sum", async (req, res) => {
     },
   });
 
-  res.status(200).json({ result });
+  res.status(200).json({ result, id: request.id });
 });
