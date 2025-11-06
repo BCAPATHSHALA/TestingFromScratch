@@ -1,6 +1,17 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import request from "supertest";
 import { app } from "../index";
+
+// Mocking Database (Manual Mocking)
+vi.mock("../db", () => {
+  return {
+    prismaClient: {
+      request: {
+        create: vi.fn(),
+      },
+    },
+  };
+});
 
 describe("POST /sum", () => {
   it("should return 411 for missing parameters", async () => {

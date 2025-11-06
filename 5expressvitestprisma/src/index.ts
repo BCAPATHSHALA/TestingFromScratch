@@ -27,7 +27,7 @@ app.post("/sum", async (req, res) => {
   }
   const result = a + b;
 
-  // Adding Database
+  // Adding Database: we have to mock out this request creation during unit testing
   await prismaClient.request.create({
     data: {
       a,
