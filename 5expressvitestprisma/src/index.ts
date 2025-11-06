@@ -33,7 +33,7 @@ app.post("/sum", async (req, res) => {
       a,
       b,
       result,
-      type: "SUM", // If add "MULTIPLY" so it will fine without spy but add spy it will fail
+      type: "MULTIPLY", // If add "MULTIPLY" so it will fine without spy but add spy it will fail
     },
   });
 
