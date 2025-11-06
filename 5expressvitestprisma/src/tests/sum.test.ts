@@ -2,16 +2,8 @@ import { describe, it, expect, vi } from "vitest";
 import request from "supertest";
 import { app } from "../index";
 
-// Mocking Database (Manual Mocking)
-vi.mock("../db", () => {
-  return {
-    prismaClient: {
-      request: {
-        create: vi.fn(),
-      },
-    },
-  };
-});
+// Mocking Database (Without Manual Deep Mocking)
+vi.mock("../db");
 
 describe("POST /sum", () => {
   it("should return 411 for missing parameters", async () => {
