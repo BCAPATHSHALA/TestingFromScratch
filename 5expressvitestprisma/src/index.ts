@@ -2,7 +2,6 @@ import express from "express";
 import { z } from "zod";
 import { prismaClient } from "./db";
 import "dotenv/config";
-import { id } from "zod/locales";
 
 export const app = express();
 app.use(express.json());
@@ -34,7 +33,7 @@ app.post("/sum", async (req, res) => {
       a,
       b,
       result,
-      type: "SUM",
+      type: "SUM", // If add "MULTIPLY" so it will fine without spy but add spy it will fail
     },
   });
 
