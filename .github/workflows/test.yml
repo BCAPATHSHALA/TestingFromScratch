@@ -35,4 +35,8 @@ jobs:
         run: chmod +x ./6integrationtesting/scripts/*.sh
 
       - name: Run integration script
-        run: cd 6integrationtesting && npm run test:integration
+        working-directory: ./6integrationtesting
+        run: |
+          chmod +x ./scripts/run-integration.sh
+          npm install
+          npm run test:integration
