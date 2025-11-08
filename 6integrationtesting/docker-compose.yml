@@ -1,0 +1,13 @@
+name: "Integration Testing with Docker Compose"
+
+version: "3.8"
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mypostgrespassword
+    ports:
+      - "5432:5432"

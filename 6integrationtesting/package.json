@@ -7,7 +7,9 @@
     "postinstall": "prisma generate",
     "build": "tsc -b",
     "start": "node dist/bin.js",
-    "dev": "npm run build && npm run start"
+    "dev": "npm run build && npm run start",
+    "test": "vitest",
+    "test:integration": "./scripts/run-integration.sh"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "@types/express": "^5.0.5",
     "express": "^5.1.0",
     "prisma": "^6.19.0",
+    "vitest": "^4.0.8",
     "zod": "^4.1.12"
   }
 }
