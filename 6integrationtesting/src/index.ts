@@ -25,16 +25,17 @@ app.post("/sum", async (req, res) => {
       .status(411)
       .json({ error: "Sorry, we don't support numbers bigger than 100,000" });
   }
+
   const result = a + b;
 
-  const request = await prismaClient.request.create({
-    data: {
-      a,
-      b,
-      result,
-      type: "SUM",
-    },
-  });
+  try {
+    const request = await prismaClient.request.create({
+      data: { a, b, result, type: "SUM" },
+    });
 
-  res.status(200).json({ result, id: request.id });
+    res.status(200).json({ result, id: request.id });
+  } catch (err) {
+    console.error("Database error:", err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
