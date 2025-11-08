@@ -33,7 +33,7 @@ app.post("/sum", async (req, res) => {
       data: { a, b, result, type: "SUM" },
     });
 
-    res.status(200).json({ result, id: request.id });
+    res.status(200).json({ result: request.result, id: request.id });
   } catch (err) {
     console.error("Database error:", err);
     res.status(500).json({ error: "Internal Server Error" });
