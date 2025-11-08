@@ -1,4 +1,4 @@
-name: "Integration Testing with Docker Compose"
+# name: "Integration Testing with Docker Compose"
 
 version: "3.8"
 services:
