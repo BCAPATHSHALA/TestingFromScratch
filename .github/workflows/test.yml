@@ -31,9 +31,6 @@ jobs:
       - name: Copy .env.example to .env
         run: cp ./6integrationtesting/.env.example ./6integrationtesting/.env
 
-      - name: Grant execute permissions to scripts
-        run: chmod +x ./6integrationtesting/scripts/*.sh
-
       - name: Run integration script
         working-directory: ./6integrationtesting
         run: |
