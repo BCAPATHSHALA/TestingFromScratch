@@ -1,0 +1,26 @@
+{
+  "name": "6integrationtesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bin.js",
+  "scripts": {
+    "postinstall": "prisma generate",
+    "build": "tsc -b",
+    "start": "node dist/bin.js",
+    "dev": "npm run build && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "@types/express": "^5.0.5",
+    "express": "^5.1.0",
+    "prisma": "^6.19.0",
+    "zod": "^4.1.12"
+  }
+}
